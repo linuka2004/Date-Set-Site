@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --color-romantic-50: #fff1f2;
+  --color-romantic-100: #ffe4e6;
+  --color-romantic-200: #fecdd3;
+  --color-romantic-300: #fda4af;
+  --color-romantic-400: #fb7185;
+  --color-romantic-500: #f43f5e;
+  --color-romantic-600: #e11d48;
+  --color-romantic-700: #be123c;
+  --color-romantic-800: #9f1239;
+  --color-romantic-900: #881337;
+  --color-romantic-950: #4c0519;
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Quicksand", sans-serif;
+
+  --animate-fade-in: fadeIn 0.5s ease-out forwards;
+  --animate-bounce-gentle: bounceGentle 2s infinite;
+  --animate-heartbeat: heartbeat 1.5s infinite;
+
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounceGentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+}
+
+/* Global body styling with hidden scroll overflow */
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  background-image: linear-gradient(to top right, var(--color-romantic-50), #fce7f3, #ffe4e6);
+  min-height: 100vh;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+/* Floating animation for decorative hearts in the background */
+.floating-heart {
+  position: absolute;
+  pointer-events: none;
+  bottom: -50px;
+  animation: floatUp var(--speed, 10s) linear infinite;
+  opacity: 0;
+  z-index: 1;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-110vh) scale(var(--scale, 1.2)) rotate(var(--rot, 360deg));
+    opacity: 0;
+  }
+}
+
+/* Sparkle/glow highlights */
+.glow-effect {
+  box-shadow: 0 0 25px rgba(244, 63, 94, 0.15);
+}
+
+/* Shimmer animation for card headers */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
